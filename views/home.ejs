@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Product">
+    <head>
+        <% include head %>
+        <style type="text/css">
+            #bg { position: fixed; top: 150px; left: 0; width: 100%; z-index: -1; }
+            .navbar-brand { visibility: hidden; }
+            .jumbotron .btn { margin-right: 5px; margin-top:4px; }
+            /*.navbar-nav > .not-on-home { display: none; }*/
+            .jumbotron.news { padding-top: 5px; padding-bottom: 18px; height: 300px; overflow: auto; position: relative; }
+        </style>
+    </head>
+    <body>
+        <% include header %>
+        <img src="images/map.jpg" id="bg" alt=""/>
+        <div class="container" role="main">
+            <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 container">
+              <div class="jumbotron">
+                <h1>zeean <span style="opacity: 0.5;">[ziːn]</span></h1>
+                <h3>Collecting data for a sustainable and stable world</h3>
+                <h4 itemprop="description">Zeean is a community effort to generate a heterogeneous open-source database of the global economic network at high regional and sectoral detail</h4>
+                  <a href="media" class="btn btn-primary pull-left" target="_blank"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;zeean in the media</a>
+                  <a href="http://twitter.com/zeeanit" class="btn btn-primary pull-left" target="_blank"><img src="images/twitter_white.png" height="16px"/>&nbsp;zeean on Twitter</a>
+                  <a href="about" class="btn btn-primary pull-right target="_blank""><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;About zeean</a>
+                  <br/>
+              </div>
+              <div class="jumbotron news">
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <a class="btn btn-default btn-large" href="visualization" role="button" style="width:100%;">
+                   <h2>Explore</h2>
+                    <h4>... the global economic network</h4>
+                  </a>
+                </div>
+                <div class="col-xs-6">
+                  <a class="btn btn-default btn-large" href="input" role="button" style="width:100%;">
+                    <h2>Contribute</h2>
+                    <h4>... to the database</h4>
+                  </a>
+                </div>
+              </div><br/>
+              <div class="row">
+                <div class="col-xs-6">
+                  <a class="btn btn-default btn-large" href="signup" role="button" style="width:100%;">
+                    <h2>Get in</h2>
+                    <h4>... to zeean</h4>
+                  </a>
+                </div>
+                <div class="col-xs-6">
+                  <a class="btn btn-default btn-large" href="videos" role="button" style="width:100%;">
+                    <h2>Howto</h2>
+                    <h4>... enter data into the system</h4>
+                  </a>
+                </div>
+              </div><br/>
+            </div>
+        </div>
+        <% include footer %>
+    </body>
+</html>

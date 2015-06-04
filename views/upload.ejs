@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include head %>
+    <script type="text/javascript" src="js/d3.slider.js"></script>
+    <script type="text/javascript" src="js/bootbox.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.file-input.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/upload.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/d3.slider.css" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/input.css" />
+</head>
+
+<body>
+    <% include header %>
+        <div class="container" role="main">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <% if (!user) { %>
+            <div class="alert alert-danger">
+                You are not logged in.
+            </div>
+        <% } else { %>
+                <div class="block current" id="blockType" data-toggle="buttons">
+                    <span class="glyphicon"></span>
+                    <label>What kind of data do you want to share?</label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="datatype" value="flow"/>Flows
+                            </div>
+                        </div>
+                        <div class="col-xs-8">Economic transactions that take place between different sectors and/or regions (in US$)</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="datatype" value="gdp"/>Gross Domestic Products
+                            </div>
+                        </div>
+                        <div class="col-xs-8">Market values of all officially recognized final goods and services produced within a country in a year (Nominal GDP in US$)</div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockGDPType" data-toggle="buttons" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label>Do you want to enter GDPs per sector?</label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="gdptype" value="regionalsector"/>Yes
+                            </div>
+                        </div>
+                        <div class="col-xs-8">GDP for specific sectors in specific countries/regions</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="gdptype" value="region"/>No
+                            </div>
+                        </div>
+                        <div class="col-xs-8">GDP for whole countries/regions</div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockFlowRegion" data-toggle="buttons" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label>Do you know the region each flow is originated?</label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="flowregion" value="yes"/>Yes
+                            </div>
+                        </div>
+                        <div class="col-xs-8">Intermediate flows from regional sectors to regional sectors or into regions</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="flowregion" value="no"/>No
+                            </div>
+                        </div>
+                        <div class="col-xs-8">Import flows of commodities into regional sectors</div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockFlowSector" data-toggle="buttons" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label>Do you know the destination sector of each flow (Final demand is treated as such a destination)?</label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="flowsector" value="yes"/>Yes
+                            </div>
+                        </div>
+                        <div class="col-xs-8">Intermediate flows from regional sectors to regional sectors</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="btn btn-default pull-right">
+                                <input type="radio" name="flowsector" value="no"/>No
+                            </div>
+                        </div>
+                        <div class="col-xs-8">Import flows of commodities from known regions into regions</div>
+                    </div>
+                </div>
+
+            <form method="post" action="/data/file" id="formUpload" role="form" enctype="multipart/form-data">
+                <input type="hidden" name="type"/>
+                <input type="hidden" name="year"/>
+
+                <div class="block" id="blockRowIndex" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label></label>
+                    <div class="row">
+                        <div class="col-xs-4" style="text-align:right;">
+                            <input type="file" name="rowindex" class="upload btn btn-default" title="Select" />
+                        </div>
+                        <div class="col-xs-8"><div class="alert alert-warning"></div></div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockColIndex" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label></label>
+                    <div class="row">
+                        <div class="col-xs-4" style="text-align:right;">
+                            <input type="file" name="colindex" class="upload btn btn-default" title="Select" />
+                        </div>
+                        <div class="col-xs-8"><div class="alert alert-warning"></div></div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockData" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label></label>
+                    <div class="row">
+                        <div class="col-xs-4" style="text-align:right;">
+                            <input type="file" name="data" class="upload btn btn-default" title="Select" />
+                        </div>
+                        <div class="col-xs-8"><div class="alert alert-warning"></div></div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockYear" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label></label>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="pull-right" id="year">
+                                <select class="selectpicker year" data-width="120px" data-live-search="true" data-size="10">
+                                    <option selected="selected" disabled="disabled" value="">Please select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-8"></div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockSource" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label>What is the source of your information?</label>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" name="source" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockConfidence" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label>How certain are you about your input?</label>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span style="opacity:0.5;">(uncertain)&nbsp;</span>
+                            <div class="btn-group" data-toggle="buttons">
+                                <div class="btn btn-default">
+                                    <input type="radio" name="confidence" value="1"/> 1
+                                </div>
+                                <div class="btn btn-default">
+                                    <input type="radio" name="confidence" value="2"/> 2
+                                </div>
+                                <div class="btn btn-default">
+                                    <input type="radio" name="confidence" value="3"/> 3
+                                </div>
+                                <div class="btn btn-default">
+                                    <input type="radio" name="confidence" value="4"/> 4
+                                </div>
+                                <div class="btn btn-default">
+                                    <input type="radio" name="confidence" value="5"/> 5
+                                </div>
+                            </div>
+                            <span style="opacity:0.5;">&nbsp;(certain)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block optional" id="blockComment" style="display:none;">
+                    <span class="glyphicon"></span>
+                    <label>Do you want to share any additional information?</label>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <textarea name="comment" class="form-control pull-right" rows="3" placeholder="Or do you have any suggestions, remarks or questions?"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block" id="blockSubmit" style="display:none;">
+                    <% if (user && !user.trusted) { %>
+                        <div class="alert alert-warning">
+                            Warning: You have novice status. Your data entry has preliminary status until your status is upgraded.
+                        </div>
+                    <% } %>
+                    <div style="text-align: center;">
+                        <button class="btn btn-primary" data-loading-text="Submitting..."><span class="glyphicon glyphicon-cloud-upload"></span>&nbsp;&nbsp;Submit</button>
+                    </div>
+                </div>
+            </form>
+        <% } %>
+    </div>
+    </div>
+    <% include footer %>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+.block .col-xs-8 { padding-top: 6px; padding-bottom: 6px; }
+.block { padding-right: 15px; padding-left: 15px; margin-bottom: 20px; }
+[data-toggle="buttons"] .btn>input[type="radio"], [data-toggle="buttons"] .btn>input[type="checkbox"] {
+    display: none;
+}
+.block .row { margin-top: 6px; }
+.block .col-xs-4 .btn { min-width: 120px; }
+.block > .glyphicon { margin-left: -15px; }
+.block.current > .glyphicon:before { color: #496ba2; content: "\e092"; }
+.block.ok > .glyphicon:before { color: #5cb85c; content: "\e013"; }
+.block.optional > .glyphicon:before { color: #f0ad4e; content: ""; }
+.block .col-xs-8 .alert { margin-left: -15px; margin-top: -15px; margin-bottom: 0; }
+.sectorlabel {
+    width: 17px;
+    height: 17px;
+    vertical-align: text-top;
+    display: inline-block;
+    border-radius: .25em;
+    margin-right: 3px;
+    border: 1px solid rgba(0,0,0,0.2);
+}

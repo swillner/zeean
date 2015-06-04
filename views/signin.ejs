@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include head %>
+        <script lang="text/javascript">
+            $(document).ready(function() {
+                $("#formLogin2").on("submit", function(event) {
+                    event.preventDefault();
+                    var email_ = $("#sign_in_email2").val(),
+                        password = $("#sign_in_password2").val();
+                    $("#formLogin2 button")
+                        .removeClass("btn-danger")
+                        .button("loading");
+                    $.ajax({
+                        url: "/users/session",
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            email: email_,
+                            password: password
+                        }),
+                        success: function(data) {
+                            $("#formLogin2 button").button("reset");
+                            if (data.result==="success") {
+                                window.location = "/";
+                            } else {
+                                $("#formLogin2 button")
+                                    .addClass("btn-danger")
+                                    .button("error");
+                            }
+                        },
+                        error: function() {
+                            $("#formLogin2 button")
+                                .addClass("btn-danger")
+                                .button("error");
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <% include header %>
+        <div class="container" role="main">
+            <div class="jumbotron" style="width: 430px; margin: auto; font-size: 14px;">
+                <form id="formLogin2">
+                    <div class="form-group">
+                        <label class="control-label sr-only" for="sign_in_email2">E-Mail</label>
+                        <input class="form-control" type="text" placeholder="E-Mail" id="sign_in_email2"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label sr-only" for="sign_in_password2">Password</label>
+                        <input class="form-control" type="password" placeholder="Password" id="sign_in_password2"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" data-loading-text="Signing in..." data-error-text="Login failed">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <% include footer %>
+    </body>
+</html>

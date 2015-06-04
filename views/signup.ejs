@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include head %>
+        <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+        <script type="text/javascript" src="js/signup.js"></script>
+    </head>
+    <body>
+        <% include header %>
+        <div class="container" role="main">
+            <div class="jumbotron" style="width: 430px; margin: auto; font-size: 14px;">
+                <form role="form" id="formRegister">
+                    <div class="form-group">
+                        <label class="control-label sr-only" for="registerUsername">Your name</label>
+                        <input class="form-control" type="text" placeholder="Your (real) name" id="registerUsername"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label sr-only" for="registerEMail">E-Mail</label>
+                        <input class="form-control" type="text" placeholder="E-Mail (used for login)" id="registerEMail"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label sr-only" for="registerPassword">Password</label>
+                        <input class="form-control" type="password" placeholder="Password" id="registerPassword"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label sr-only" for="registerPasswordRepeated">Repeat password</label>
+                        <input class="form-control" type="password" placeholder="Repeat password" id="registerPasswordRepeated"/>
+                    </div>
+                    <div class="form-group" id="registerRecaptcha">
+                        <label class="control-label sr-only" for="recaptcha_response_field">Captcha</label>
+                        <input class="form-control" type="text" placeholder="Enter the two words/numbers below..." id="recaptcha_response_field"/>
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        <div id="recaptcha_image" style="display: inline-block;"></div><br/>
+                        <a href="javascript:Recaptcha.showhelp()"><div class="glyphicon glyphicon-question-sign"></div></a>
+                        <div style="font-size:14px;">
+                            <a href="javascript:Recaptcha.reload()">Get another Captcha</a>
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary" id="btnRegister" data-loading-text="Loading..." data-error-text="Sign up failed">Sign up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <% include footer %>
+    </body>
+</html>

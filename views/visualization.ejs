@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include head %>
+        <script type="text/javascript" src="js/d3.slider.js"></script>
+        <script type="text/javascript" src="js/bootbox.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
+        <script type="text/javascript" src="js/visualization.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/d3.slider.css"/>
+        <link type="text/css" rel="stylesheet" href="css/bootstrap-select.min.css"/>
+        <link type="text/css" rel="stylesheet" href="css/map.css">
+        <style>
+            .bootstrap-select .caret { display: none; }
+            .bootstrap-select.btn-group .btn .filter-option { right: 12px; }
+            .dropdown-menu { left: auto; right: 0; }
+            .rounded .btn {
+              border-radius: 4px !important;
+            }
+            .rounded-left .btn {
+              border-bottom-left-radius: 4px;
+              border-top-left-radius: 4px;
+            }
+            #toolbarType .dropdown-menu {
+                min-width: 200px;
+            }
+            .bootstrap-select .glyphicon {
+                position: absolute;
+                right: 7px;
+                top: 0;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <% include header %>
+        <div id="map" class="map"></div>
+        <div id="toolbar">
+            <div class="btn-group">
+                <div class="nested btn-group dropdown with-tooltip" id="toolbarNumber" data-title="Number of largest flows displayed" data-placement="bottom" style="display:none;">
+                    <select class="selectpicker dropdown" data-toggle="dropdown" data-title="100" data-width="85px" data-live-search="true" data-size="10">
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="nested btn-group with-tooltip rounded" id="toolbarType" data-title="Type of data to display" data-placement="bottom">
+                    <select class="selectpicker dropup" data-width="150px" data-style="btn-default btn-danger">
+                        <option selected="selected" disabled="disabled" value="" data-title="">Start exploring</option>
+                        <option value="flows" data-subtext='(largest)' data-title="">Flows</option>
+                        <option value="betweenness" data-title="">Betweenness Centrality</option>
+                        <option value="flow_centrality" data-title="">Flow Centrality</option>
+                        <option value="nap" data-title="">Global adaptive pressure</option>
+                    </select>
+                </div>
+                <div class="nested btn-group with-tooltip" id="toolbarCommodities" data-title="Commodities to be taken into account" data-placement="bottom" style="display:none;">
+                    <select class="selectpicker dropup" data-title="Commodities" data-width="100px" multiple data-selected-text-format="count>3">
+                    </select>
+                </div>
+                <div class="nested btn-group" id="toolbarRegion" style="display:none;">
+                    <select class="selectpicker dropup" data-title="Please select" data-width="100px" data-live-search="true" data-size="10">
+                    </select>
+                </div>
+                <div class="nested btn-group with-tooltip" id="toolbarLogic" data-title="Logic connection of regions and sectors" data-placement="bottom" style="display:none;">
+                    <select class="selectpicker dropup" data-title="Logic" data-width="47px">
+                        <option value="and">and</option>
+                    </select>
+               </div>
+                <div class="nested btn-group" id="toolbarSector" style="display:none;">
+                    <select class="selectpicker dropup" data-title="Please select" data-width="100px" data-live-search="true" data-size="10">
+                    </select>
+                </div>
+                <div class="nested btn-group with-tooltip" id="toolbarDamage" data-title="Order of damage to consider" data-placement="bottom" style="display:none;">
+                    <select class="selectpicker dropup" data-title="Damage" data-width="75px">
+                        <option value="1">1st order</option>
+                        <option value="2">2nd order</option>
+                    </select>
+                </div>
+                <div class="nested btn-group with-tooltip" id="toolbarYear" data-title="Year of data displayed" data-placement="bottom" style="display:none;">
+                    <select class="selectpicker dropup" data-title="2011" data-width="90px" data-live-search="true" data-size="10">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="zoombar">
+            <div id="zoomslider"></div>
+            <div class="btn btn-default with-tooltip" id="zoomIn" data-title="Zoom in" data-placement="right"><span class="glyphicon glyphicon-plus"></span></div>
+            <div class="btn btn-default with-tooltip" id="zoomOut" data-title="Zoom out" data-placement="right"><span class="glyphicon glyphicon-minus"></span></div>
+            <div class="btn btn-default with-tooltip" id="zoomReset" data-title="Reset zoom" data-placement="right"><span class="glyphicon glyphicon-screenshot"></span></div>
+        </div>
+        <div id="legend" class="btn-group"></div>
+        <div id="popover" class="popover">
+            <div class="arrow"></div>
+            <h3 class="popover-title dark"></h3>
+            <div class="popover-content" style="padding: 0;"></div>
+        </div>
+        <div class="btn btn-default dropbox with-tooltip" id="download" data-title="Export the currently showing map as a PDF or PNG file" data-placement="top">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="text-decoration: none; color: #333;">Export map</a>
+            <ul class="dropdown-menu">
+                <li><a id="download-pdf">Save as PDF</a></li>
+                <li><a id="download-png">Save as PNG</a></li>
+            </ul>
+        </div>
+        <form id="convert-form" method="post" action="/convertsvg" enctype="multipart/form-data" target="_blank">
+            <input type="hidden" name="filename"/>
+            <input type="hidden" name="format"/>
+            <input type="hidden" name="data"/>
+        </form>
+        <% include footer %>
+    </body>
+</html>

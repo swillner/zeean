@@ -1,0 +1,34 @@
+{
+  "name": "zeean",
+  "version": "0.9.0",
+  "author": "Sven Willner <sven.willner@pik-potsdam.de> (http://www.pik-potsdam.de/~willner)",
+  "contributors": [{
+    "name": "Torsten Albrecht",
+    "email": "torsten.albrecht@pik-potsdam.de"
+  }],
+  "description": "",
+  "homepage": "http://zeean.net",
+  "main": "server.js",
+  "dependencies": {
+    "cron": "~1.0.3",
+    "express": "~3.4.8",
+    "line-reader": "~0.2.3",
+    "nodemailer": "~0.6.0",
+    "ejs": "~0.8.5",
+    "mysql": "~2.0.1",
+    "recaptcha": "~1.2.0",
+    "winston": "~0.7.2"
+  },
+  "bugs": {
+    "email": "sven.willner@pik-potsdam.de"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:swillner/zeean.git"
+  },
+  "license": "LGPL",
+  "private": "true"
+}

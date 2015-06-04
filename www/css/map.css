@@ -1,0 +1,78 @@
+svg {
+  pointer-events: all;
+  cursor: default;
+}
+
+.arc, text {
+  pointer-events: none;
+}
+/*
+.data_map {
+    max-height: 400px;
+    max-width: 400px;
+}*/
+
+.small_map {
+    max-height: 200px;
+    height: auto;
+    padding: 0;
+}
+
+.data_map, .data_map svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.data_map_container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.data_map_dummy {
+    margin-top: 100%;
+}
+
+path.country, path.subcountry {
+    stroke: #fff;
+}
+
+path.country.hoverable:hover, path.subcountry.hoverable:hover {
+    opacity: 0.5;
+}
+
+path.country.selected:hover,
+path.country.selected,
+path.subcountry.selected:hover,
+path.subcountry.selected {
+    fill: #496ba2;
+    opacity: 1;
+}
+
+path.country.regionalized:hover,
+path.country.regionalized {
+    stroke: #303947;
+    fill: #303947;
+    opacity: 1;
+}
+
+.map.disabled {
+    pointer-events: none;
+}
+
+.map *, .data_map * {
+    pointer-events: inherit;
+}
+
+path.arc {
+  fill: none;
+  /*stroke: #A64138;*/
+  stroke-linecap: round;
+}
+
+g.normallyhidden {
+    display: none;
+}

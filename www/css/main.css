@@ -1,0 +1,415 @@
+#footer .glyphicon {
+    font-size: 17px;
+    top: 4px;
+}
+
+#footer .glyphicon:before {
+    color: #9D9D9D;
+}
+
+#footer > div {
+    margin: 20px;
+}
+
+.jumbotron, .btn-large {
+    background-color: rgba(238, 238, 238, 0.7);
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.175);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.175);
+}
+
+.jumbotron h1+h2+h3+h4, .btn-large h1+h2+h3+h4 {
+    text-shadow: 0 1px #FFF;
+}
+
+.not-on-home {
+    opacity: 0.5;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+
+.bootstrap-select option {
+    display: none;
+}
+
+.table td {
+    text-overflow: ellipsis;
+}
+
+.table th {
+    font-weight: normal;
+}
+
+.filter-option {
+    text-overflow: ellipsis;
+}
+/* TODO
+.popover-content .dropdown-menu {
+    display: block;
+    margin: 0;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+*/
+.dropdown-menu>li>span {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333;
+    white-space: nowrap;
+}
+
+.legendBoxFlow svg {
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    vertical-align: middle;
+    left: 6px;
+}
+
+.legendBox.legendBoxFlow {
+    width: 100px;
+}
+
+.legendBoxFlow span {
+    margin-left: 18px;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #5383d0;
+    border-color: #496ba2;
+}
+
+.btn-danger {
+    background-color: #a84138;
+    border-color: #8e453e;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open .dropdown-toggle.btn-danger {
+    background-color: #8e453e;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    background-color: #496ba2;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -61px;
+    padding: 0 0 100px;
+}
+
+#footer {
+    height: 60px;
+}
+
+#map {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    bottom: 60px;
+}
+
+#toolbar {
+    position:absolute;
+    right: 30px;
+    top: 82px;
+    height: auto;
+}
+
+#toolbarYear {
+    width: 65px;
+    height: 60px
+}
+
+#toolbarNumber {
+    width: 85px;
+    height: 60px
+}
+
+/*#toolbarYear .dropdown-menu,
+#year .dropdown-menu {
+    right: 0;
+    left: auto;
+    max-width: none;
+}
+
+#toolbarYear .dropdown-menu > div,
+#year .dropdown-menu > div {
+    width: 400px;
+    margin: 10px 20px 30px 20px;
+}
+
+#toolbarNumber .dropdown-menu,
+#number .dropdown-menu {
+    left: 0;
+    right: auto;
+    max-width: none;
+}
+
+#toolbarNumber .dropdown-menu > div,
+#number .dropdown-menu > div {
+    width: 300px;
+    margin: 10px 20px 30px 20px;
+}*/
+
+#legend {
+    position: absolute;
+    left: 20px;
+    bottom: 80px;
+    height: auto;
+}
+
+.dropdown-menu {
+    overflow: hidden;
+}
+
+.legendBox {
+    width: 85px;
+    opacity: 1 !important;
+}
+
+.legendBox > div {
+    width: 100%;
+    height: 25px;
+    border: 1px solid #adadad;
+    border-radius: 2px;
+}
+
+.popover {
+    min-width: 150px;
+    cursor: default;
+}
+
+.d3-slider {
+    background: white;
+}
+
+.navbar {
+    border: none;
+    background: white;
+}
+
+.navbar-collapse {
+    border-bottom: 1px solid #ccc;
+}
+
+.checkbox {
+    padding-bottom: 7px;
+    font-size: 14px;
+    font-weight: normal;
+}
+.checkbox label {
+    font-family: inherit;
+}
+
+html, body {
+    font-family: "Abel", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 100%;
+}
+
+body, .dropdown-menu, .btn {
+    font-size: 11pt;
+}
+
+p {
+    font-size: 18px;
+}
+
+dt {
+    font-family: "Abel", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+dd {
+    color: #999;
+    text-align: justify;
+}
+
+h1, h2, .h1, .h2 {
+    font-family: "Alice", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h3, h4, h5, h6, .h3, .h4, .h5, .h6 {
+    font-family: "Abel", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.btn h1, .btn h2, .btn h3, .btn h4, .btn h5, .btn h6 {
+    white-space: normal;
+}
+
+label {
+    font-family: "Alice", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+
+/*iframe {
+    display: none;
+}*/
+
+.navbar h1 {
+    margin: 0;
+}
+
+.navbar ul {
+    margin-top: 10px;
+}
+
+.form-group .btn-group {
+    width: 100%;
+}
+
+#transfer_icon {
+    display: none;
+}
+#data_input_transfer {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (min-width: 1200px) {
+    #transfer_icon {
+        opacity: 0.2;
+        margin: -4px 0 10px -7px;
+        font-size: 100px;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    #data_input_transfer label {
+        text-align: left;
+    }
+}
+
+.waiting {
+    position: relative;
+    pointer-events: none;
+}
+
+.waitingSpinner {
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+}
+
+.waitingSpinner:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: block !important;
+    background-image: url(../images/spinner.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+@media (min-width: 768px) {
+    .navbar > div {
+       max-width: 100%;
+       min-width: 768px;
+    }
+}
+
+.sectors ul,
+.year ul  {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.dropdown-menu {
+    min-width: 100%;
+}
+
+.dropdown-toggle h4,
+.dropdown-menu a {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.dropdown-toggle h4 {
+    height: 21px;
+    overflow-y: visible;
+}
+
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-top;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.dropdown-menu.hidden {
+    display: none;
+}
+
+.section {
+    float: none;
+    text-align: justify;
+}
+
+.dark {
+    background-color: #303947;
+    color: #CCC;
+    text-shadow: 0 1px #1f1f1f;
+}
+
+.dark a {
+    color: #CCC !important;
+}
+
+.dark a.btn {
+    color: #FFF !important;
+}
+
+.required:after {
+    content: "*";
+    color: #CC0000;
+    font-size: 12px;
+}
+
+.helpbutton {
+    color: #CCC;
+}
+
+.helpbutton:hover {
+    color: #999;
+}
+
+.btn-group > .btn-group.nested:not(:last-child) > .btn-group > .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn-group.nested:first-child > .btn-group > .btn {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+/*
+#download {
+    position: absolute;
+    right: 30px;
+    bottom: 80px;
+    height: auto;
+}
+*/

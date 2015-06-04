@@ -1,0 +1,5 @@
+check process node-service with pidfile /var/run/node-service.pid
+  start program = "/etc/init.d/node-service start"
+  stop program = "/etc/init.d/node-service stop"
+  if failed port 80 protocol http then restart
+  if 5 restarts within 5 cycles then timeout
