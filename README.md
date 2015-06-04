@@ -12,4 +12,4 @@ Uses following libraries:
 
 Country shapes and names from [GADM database of Global Administrative Areas](http://gadm.org).
 
-Algorithms used for network measures can be found in my [network_measures](http://github.com/swillner/network_measures) repository.
+Algorithms used for network measures can be found in my [network-measures](http://github.com/swillner/network-measures) repository.
